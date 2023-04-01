@@ -57,8 +57,11 @@ public class JuiceAutoConfiguration {
 
 		@Bean
 		@ConditionalOnMissingBean
-		public StaticGraphqlDefinitionFinder getStaticGraphqlDefinitionFinder(ObjectProvider<StaticGraphqlDefinitionFinder.StaticGraphqlWrapper> wrappers) {
+		public StaticGraphqlDefinitionFinder getStaticGraphqlDefinitionFinder(ObjectProvider<StaticGraphqlDefinitionFinder.StaticGraphqlWrapper> wrappers, ObjectProvider<StaticGraphqlDefinitionFinder.StaticGraphqlBatchWrapper> batchWrappers) {
 				StaticGraphqlDefinitionFinder finder = new StaticGraphqlDefinitionFinder();
+				batchWrappers.stream().forEach(batchWrapper -> {
+						batchWrapper.getList().forEach(finder::addGraphQL);
+				});
 				wrappers.stream().forEach(finder::addGraphQL);
 				return finder;
 		}

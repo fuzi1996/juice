@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="juice.demo.user.mapper.UserMapper">
+
+    <sql id="test">
+        select *
+        from test
+    </sql>
+
+    <sql id="containsIf">
+        <if test="name != null">
+            and name = #{name}
+        </if>
+    </sql>
+
+    <sql id="containsInclude">
+        <include refid="containsInclude">
+            <property name="name" value="value"/>
+        </include>
+    </sql>
+    <select id="findUser" resultType="juice.demo.user.entity.User">
+        select *
+        from user
+    </select>
+</mapper>

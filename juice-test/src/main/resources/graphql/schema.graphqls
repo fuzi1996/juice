@@ -1,34 +1,10 @@
 type Query {
-    bookById(id: ID): Book
+    userById(id: ID): User
 }
 
-type Mutation {
-    deleteBook(id: ID!): Book
-    createBook(book: BookInput!): Book
-}
-
-type Book {
+type User {
     id: ID
     name: String
-    pageCount: Int
-    author: Author
-}
-
-type Author {
-    id: ID
-    firstName: String
-    lastName: String
-}
-
-input BookInput {
-    id: ID!
-    name: String!
-    pageCount: Int!
-    author: AuthorInput!
-}
-
-input AuthorInput {
-    id: ID
-    firstName: String
-    lastName: String
+    age: Int
+    email: String
 }
