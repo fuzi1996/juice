@@ -1,10 +1,10 @@
-type Query {
-    bookById(id: ID): Book
-}
-
-type Mutation {
+extend type Mutation {
     deleteBook(id: ID!): Book
     createBook(book: BookInput!): Book
+}
+
+extend type Query {
+    bookById(id: ID): Book
 }
 
 type Book {

@@ -29,7 +29,7 @@
         <javax-servlet.version>3.1.0</javax-servlet.version>
         <spring.version>5.3.21</spring.version>
         <spring-boot.version>2.7.0</spring-boot.version>
-        <graphql-java.version>18.1</graphql-java.version>
+        <graphql-java.version>20.2</graphql-java.version>
         <spring-graphql.version>1.0.0</spring-graphql.version>
     </properties>
 
